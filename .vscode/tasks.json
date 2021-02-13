@@ -1,62 +1,65 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "Bundle",
-        "type": "shell",
-        "command": "deno bundle --unstable --importmap importMap.json --config tsconfig.json --lock deno-lock.json src/hello.ts dist/hello.js",
-        "problemMatcher": [],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        }
-      },
-      {
-        "label": "Run tests",
-        "type": "shell",
-        "command": "deno test --unstable --importmap importMap.json --config tsconfig.json --lock deno-lock.json",
-        "problemMatcher": [
-          {
-            "owner": "deno",
-            "fileLocation": ["relative", "${workspaceFolder}/test/"],
-            "pattern": [
-              {
-                "regexp": "^Error: (.*)$",
-                "message": 1
-              },
-              {
-                "regexp": "\\s+at (.*):(\\d+):(\\d+)$",
-                "file": 1,
-                "line": 2,
-                "column": 3
-              }
-            ]
-          }
-        ],
-        "group": {
-          "kind": "test",
-          "isDefault": true
-        }
-      },
-      {
-        "label": "Cache create",
-        "type": "shell",
-        "command": "deno cache --lock deno-lock.json --lock-write --unstable --importmap importMap.json src/*.ts test/*.ts",
-        "problemMatcher": []
-      },
-      {
-        "label": "Cache populate",
-        "type": "shell",
-        "command": "deno cache --lock deno-lock.json --unstable --importmap importMap.json src/*.ts test/*.ts",
-        "problemMatcher": []
-      },
-      {
-        "label": "Cache populate (reload)",
-        "type": "shell",
-        "command": "deno cache --lock deno-lock.json --reload --unstable --importmap importMap.json src/*.ts test/*.ts",
-        "problemMatcher": []
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bundle",
+      "type": "shell",
+      "command": "deno bundle --unstable --import-map importMap.json --config tsconfig.json --lock deno-lock.json src/hello.ts dist/hello.js",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
       }
-    ]
+    },
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "command": "deno test --unstable --import-map importMap.json --config tsconfig.json --lock deno-lock.json",
+      "problemMatcher": [
+        {
+          "owner": "deno",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}/test/"
+          ],
+          "pattern": [
+            {
+              "regexp": "^Error: (.*)$",
+              "message": 1
+            },
+            {
+              "regexp": "\\s+at (.*):(\\d+):(\\d+)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
+        }
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Cache create",
+      "type": "shell",
+      "command": "deno cache --lock deno-lock.json --lock-write --unstable --import-map importMap.json src/*.ts test/*.ts",
+      "problemMatcher": []
+    },
+    {
+      "label": "Cache populate",
+      "type": "shell",
+      "command": "deno cache --lock deno-lock.json --unstable --import-map importMap.json src/*.ts test/*.ts",
+      "problemMatcher": []
+    },
+    {
+      "label": "Cache populate (reload)",
+      "type": "shell",
+      "command": "deno cache --lock deno-lock.json --reload --unstable --import-map importMap.json src/*.ts test/*.ts",
+      "problemMatcher": []
+    }
+  ]
 }

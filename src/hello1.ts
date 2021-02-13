@@ -1,4 +1,4 @@
-import { serve } from "https://deno.land/std@0.75.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.87.0/http/server.ts";
 
 const port = 8000;
 const host = "0.0.0.0";
