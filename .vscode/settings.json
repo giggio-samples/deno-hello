@@ -2,11 +2,15 @@
   "debug.javascript.usePreview": false,
   "deno.enable": true,
   "deno.lint": true,
-  "deno.import_map": "./importMap.json",
-  "deno.unstable": true,
-  "deno.import_intellisense_origins": {
+  "deno.importMap": "./importMap.json",
+  "deno.config": "./tsconfig.json",
+  "deno.suggest.autoImports": true,
+  "deno.suggest.imports.hosts": {
     "https://deno.land": true,
   },
+  "deno.codeLens.implementations": true,
+  "deno.codeLens.references": true,
+  "deno.codeLens.referencesAllFunctions": true,
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
